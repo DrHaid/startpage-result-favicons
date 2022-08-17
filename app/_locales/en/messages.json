@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Startpage - Result Favicons",
+    "description": "The name of the application"
+  },
+  "appShortName": {
+    "message": "startpageicons",
+    "description": "The short_name (maximum of 12 characters recommended (scru dat, startpage's already 9)) is a short version of the app's name."
+  },
+  "appDescription": {
+    "message": "Adds favicons to Startpage search result items.",
+    "description": "The description of the application"
+  }
+}

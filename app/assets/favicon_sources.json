@@ -1,0 +1,22 @@
+[
+  {
+    "value": "duckduckgo",
+    "label": "DuckDuckGo",
+    "url": "https://icons.duckduckgo.com/ip3/%DOMAIN%.ico"
+  },
+  {
+    "value": "google",
+    "label": "Google",
+    "url": "https://www.google.com/s2/favicons?domain=%DOMAIN%"
+  },
+  {
+    "value": "statvoo",
+    "label": "Statvoo",
+    "url": "https://api.statvoo.com/favicon/?url=%DOMAIN%"
+  },
+  {
+    "value": "yandex",
+    "label": "Yandex",
+    "url": "https://favicon.yandex.net/favicon/%DOMAIN%"
+  }
+]
