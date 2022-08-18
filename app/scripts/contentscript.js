@@ -32,5 +32,5 @@ const onError = (e) => {
 }
 
 const gettingStoredSource = browser.storage.local.get("faviconSource");
-gettingStoredSource.then(insertFavicons, onError)
+gettingStoredSource.then(insertFavicons, onError);
 

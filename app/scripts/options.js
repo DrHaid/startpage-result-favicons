@@ -7,25 +7,26 @@ const setAttributes = (el, attrs) => {
 const handleRadioChange = (event) => {
   const value = event.target.value;
   const src = FAVICON_SOURCES.find((source) => source.value === value);
-  if (src){
-    browser.storage.local.set({"faviconSource": src.url});
+  if (src) {
+    browser.storage.local.set({ "faviconSource": src.url });
+    alert("test");
   }
 }
 
 const getRadioButton = (source, isChecked) => {
   const div = document.createElement("div");
   const input = document.createElement("input");
-  setAttributes(input, {type: "radio", id: source.value, value: source.value, name: "faviconSource"});
-  if (isChecked){
+  setAttributes(input, { type: "radio", id: source.value, value: source.value, name: "faviconSource" });
+  if (isChecked) {
     input.setAttribute("checked", "checked");
   }
   input.addEventListener("change", handleRadioChange);
   div.appendChild(input);
   const label = document.createElement("label");
-  setAttributes(label, {for: source.value, title: source.url})
+  setAttributes(label, { for: source.value, title: source.url });
   label.innerHTML = source.label;
   div.appendChild(label);
-  return div;  
+  return div;
 }
 
 const buildOptionsUI = (storedSource) => {
