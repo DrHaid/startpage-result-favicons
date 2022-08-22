@@ -24,7 +24,7 @@ const getRadioButton = (source, isChecked) => {
   div.appendChild(input);
   const label = document.createElement("label");
   setAttributes(label, { for: source.value, title: source.url });
-  label.innerHTML = source.label;
+  label.textContent = source.label;
   div.appendChild(label);
   return div;
 }
