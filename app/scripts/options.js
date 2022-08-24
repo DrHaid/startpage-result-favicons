@@ -9,7 +9,6 @@ const handleRadioChange = (event) => {
   const src = FAVICON_SOURCES.find((source) => source.value === value);
   if (src) {
     browser.storage.local.set({ "faviconSource": src.url });
-    alert("test");
   }
 }
 
