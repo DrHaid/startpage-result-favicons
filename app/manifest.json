@@ -2,7 +2,7 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "homepage_url": "https://github.com/DrHaid/startpage-result-favicons",
   "manifest_version": 2,
   "default_locale": "en",
