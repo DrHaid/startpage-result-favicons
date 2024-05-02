@@ -28,6 +28,12 @@ const onError = (e) => {
   console.error(e);
 }
 
-const gettingStoredSource = browser.storage.local.get("faviconSource");
-gettingStoredSource.then(insertFavicons, onError);
+const observer = new MutationObserver(() => {
+  const gettingStoredSource = browser.storage.local.get("faviconSource");
+  gettingStoredSource.then(insertFavicons, onError);
+});
 
+// watch search result container for changes to apply icons
+observer.observe(document.querySelector("#main"), {
+  childList: true,
+});
