@@ -6,6 +6,7 @@ const getFaviconElement = (hostname, faviconBaseURL) => {
   img.setAttribute("src", faviconUrl);
   img.height = 18;
   img.width = 18;
+  img.style = "margin-right: 5px";
   return img;
 }
 
@@ -13,14 +14,12 @@ const insertFavicons = (storedSource) => {
   const sourceURL = storedSource.faviconSource ?? FAVICON_SOURCES[0].url;
   const resultContainers = document.querySelectorAll("div.result > div.upper");
   resultContainers.forEach((container) => {
-    const url = container.querySelector("a[role=link]").getAttribute("href");
+    const linkElement = container.querySelector("a[role=link]")
+    const url = linkElement.getAttribute("href");
     const hostname = new URL(url).hostname;
     const imgElement = getFaviconElement(hostname, sourceURL);
 
-    // replace anonymous view icon with favicon image
-    const anonymousViewIcon = container.querySelector("img");
-    anonymousViewIcon.insertAdjacentElement("beforebegin", imgElement);
-    anonymousViewIcon.remove();
+    linkElement.insertAdjacentElement("beforebegin", imgElement);
   });
 };
 
