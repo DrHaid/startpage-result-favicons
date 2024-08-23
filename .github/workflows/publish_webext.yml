@@ -1,0 +1,40 @@
+name: Publish WebExtension
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+jobs:
+  publish_firefox:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    - name: install dependencies
+      run: npm ci
+    - name: build extension for Firefox
+      run: npm run build firefox
+
+    - id: get-xpi-file
+      run: echo "xpi=${find ./packages/*.xpi.zip}" >> $GITHUB_OUTPUT
+
+    - name: zip source code
+      run: |
+        zip -r source_code.zip app/* packages/* README.md package*.json
+
+    - name: publish extension
+      uses: wdzeng/firefox-addon@v1
+      with:
+        addon-guid: ${{ env.ADDON_GUID }}
+        xpi-path: ${{steps.get-xpi-file.outputs.xpi}}
+        jwt-issuer: ${{ secrets.JWT_ISSUER }}
+        jwt-secret: ${{ secrets.JWT_SECRET }}
+        source-code-path: source_code.zip
