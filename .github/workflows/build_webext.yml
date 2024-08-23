@@ -1,4 +1,4 @@
-name: Build WebExtension
+name: Build
 
 on:
   push:

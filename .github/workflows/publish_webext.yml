@@ -1,4 +1,4 @@
-name: Publish WebExtension
+name: Publish
 
 on:
   push:
