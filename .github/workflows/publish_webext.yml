@@ -33,7 +33,7 @@ jobs:
     - name: publish extension
       uses: wdzeng/firefox-addon@v1.1.0-alpha.1
       with:
-        addon-guid: ${{ env.ADDON_GUID }}
+        addon-guid: ${{ vars.ADDON_GUID }}
         xpi-path: ${{steps.get-xpi-file.outputs.xpi}}
         jwt-issuer: ${{ secrets.JWT_ISSUER }}
         jwt-secret: ${{ secrets.JWT_SECRET }}
