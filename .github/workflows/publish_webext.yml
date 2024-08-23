@@ -24,7 +24,7 @@ jobs:
       run: npm run build firefox
 
     - id: get-xpi-file
-      run: echo "xpi=${find ./packages/*.xpi.zip}" >> $GITHUB_OUTPUT
+      run: echo "xpi=$(find ./packages/*.xpi.zip)" >> $GITHUB_OUTPUT
 
     - name: zip source code
       run: |
