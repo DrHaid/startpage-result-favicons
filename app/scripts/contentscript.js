@@ -14,7 +14,7 @@ const insertFavicons = (storedSource) => {
   const sourceURL = storedSource.faviconSource ?? FAVICON_SOURCES[0].url;
   const resultContainers = document.querySelectorAll("div.result > div.upper");
   resultContainers.forEach((container) => {
-    const linkElement = container.querySelector("a[role=link]")
+    const linkElement = container.querySelector("a")
     const url = linkElement.getAttribute("href");
     const hostname = new URL(url).hostname;
     const imgElement = getFaviconElement(hostname, sourceURL);
