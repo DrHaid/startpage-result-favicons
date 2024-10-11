@@ -7,6 +7,7 @@ const getFaviconElement = (hostname, faviconBaseURL) => {
   img.height = 18;
   img.width = 18;
   img.style = "margin-right: 5px";
+  img.className = "result-favicon";
   return img;
 }
 
@@ -15,6 +16,10 @@ const insertFavicons = (storedSource) => {
   const resultContainers = document.querySelectorAll("div.result > div.upper");
   resultContainers.forEach((container) => {
     const linkElement = container.querySelector("a")
+    if (linkElement.parentElement.querySelector(".result-favicon")) {
+      return;
+    }
+
     const url = linkElement.getAttribute("href");
     const hostname = new URL(url).hostname;
     const imgElement = getFaviconElement(hostname, sourceURL);
