@@ -32,12 +32,19 @@ const onError = (e) => {
   console.error(e);
 }
 
-const observer = new MutationObserver(() => {
+const searchResultsChanged = (mutations) =>
+  mutations.some(m => Array.from(m.removedNodes).some(t => t.tagName == "MAIN"))
+
+const observer = new MutationObserver((mutations) => {
+  if (!searchResultsChanged(mutations)) {
+    return;
+  }
   const gettingStoredSource = browser.storage.local.get("faviconSource");
   gettingStoredSource.then(insertFavicons, onError);
 });
 
 // watch search result container for changes to apply icons
-observer.observe(document.querySelector("#main"), {
+observer.observe(document.body, {
   childList: true,
+  subtree: true
 });
