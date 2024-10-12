@@ -1,6 +1,6 @@
 {
   "name": "startpage-result-favicons",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "WebExtension for displaying the favicons of search results in Startpage",
   "scripts": {
     "dev": "webextension-toolbox dev",
