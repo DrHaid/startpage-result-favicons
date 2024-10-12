@@ -12,13 +12,13 @@ const getFaviconElement = (hostname, faviconBaseURL) => {
 }
 
 const insertFavicons = (storedSource) => {
+  if (faviconsExist()) {
+    return;
+  }
   const sourceURL = storedSource.faviconSource ?? FAVICON_SOURCES[0].url;
   const resultContainers = document.querySelectorAll("div.result > div.upper");
   resultContainers.forEach((container) => {
     const linkElement = container.querySelector("a")
-    if (linkElement.parentElement.querySelector(".result-favicon")) {
-      return;
-    }
 
     const url = linkElement.getAttribute("href");
     const hostname = new URL(url).hostname;
@@ -28,17 +28,14 @@ const insertFavicons = (storedSource) => {
   });
 };
 
+const faviconsExist = () => 
+  document.querySelectorAll("img.result-favicon").length > 0;
+
 const onError = (e) => {
   console.error(e);
 }
 
-const searchResultsChanged = (mutations) =>
-  mutations.some(m => Array.from(m.removedNodes).some(t => t.tagName == "MAIN"))
-
-const observer = new MutationObserver((mutations) => {
-  if (!searchResultsChanged(mutations)) {
-    return;
-  }
+const observer = new MutationObserver(() => {
   const gettingStoredSource = browser.storage.local.get("faviconSource");
   gettingStoredSource.then(insertFavicons, onError);
 });
