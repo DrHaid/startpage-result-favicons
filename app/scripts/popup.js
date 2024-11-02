@@ -39,9 +39,9 @@ const initToggle = (isChecked) => {
   toggle.addEventListener("change", handleToggleChange);
 }
 
-const updateUI = (storedSource) => {
-  const sourceURL = storedSource.faviconSource;
-  const hideAnonView = storedSource.anonViewFavicon;
+const updateUI = (storedSettings) => {
+  const sourceURL = storedSettings.faviconSource;
+  const hideAnonView = storedSettings.anonViewFavicon;
   initSelect(sourceURL);
   initToggle(hideAnonView);
 };
@@ -51,8 +51,8 @@ const onError = (e) => {
 }
 
 // update UI with settings in storage
-const gettingStoredSource = browser.storage.local.get({
+const gettingStoredSettings = browser.storage.local.get({
   faviconSource: FAVICON_SOURCES[0].url,
   anonViewFavicon: false
 });
-gettingStoredSource.then(updateUI, onError);
+gettingStoredSettings.then(updateUI, onError);
