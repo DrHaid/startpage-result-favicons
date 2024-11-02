@@ -13,5 +13,10 @@
     "value": "yandex",
     "label": "Yandex",
     "url": "https://favicon.yandex.net/favicon/%DOMAIN%"
+  },
+  {
+    "value": "twenty",
+    "label": "Twenty",
+    "url": "https://favicon.twenty.com/%DOMAIN%"
   }
 ]

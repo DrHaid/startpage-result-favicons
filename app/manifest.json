@@ -14,6 +14,12 @@
     "browser_style": true,
     "chrome_style": true
   },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "images/icon-128.png",
+    "default_title": "__MSG_appName__",
+    "default_popup": "pages/popup.html"
+  },
   "content_scripts": [
     {
       "matches": [
