@@ -42,7 +42,7 @@ body {
 .input-labels {
     display: flex;
     flex-direction: column;
-    margin-right: 8px;
+    margin-right: 28px;
     gap: 5px;
 }
 
