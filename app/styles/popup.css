@@ -92,8 +92,8 @@ select {
     bottom: 0;
     background-color: rgb(59, 67, 91);
     border-radius: 18px;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
 }
 
 .slider:before {
@@ -105,8 +105,8 @@ select {
     bottom: 3px;
     background-color: rgb(23, 27, 37);
     border-radius: 50%;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
 }
 
 input:checked+.slider {

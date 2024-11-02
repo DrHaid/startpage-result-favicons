@@ -1,10 +1,6 @@
 import FAVICON_SOURCES from "../assets/favicon_sources.json"
 
-const setAttributes = (el, attrs) => {
-  Object.keys(attrs).forEach(key => el.setAttribute(key, attrs[key]));
-}
-
-const handleRadioChange = (event) => {
+const handleSelectChange = (event) => {
   const value = event.target.value;
   const src = FAVICON_SOURCES.find((source) => source.value === value);
   if (src) {
@@ -12,28 +8,42 @@ const handleRadioChange = (event) => {
   }
 }
 
-const getRadioButton = (source, isChecked) => {
-  const div = document.createElement("div");
-  const input = document.createElement("input");
-  setAttributes(input, { type: "radio", id: source.value, value: source.value, name: "faviconSource" });
-  if (isChecked) {
-    input.setAttribute("checked", "checked");
+const getOption = (source, isSelected) => {
+  const option = document.createElement("option");
+  option.setAttribute("value", source.value)
+  if (isSelected) {
+    option.setAttribute("selected", "selected")
   }
-  input.addEventListener("change", handleRadioChange);
-  div.appendChild(input);
-  const label = document.createElement("label");
-  setAttributes(label, { for: source.value, title: source.url });
-  label.textContent = source.label;
-  div.appendChild(label);
-  return div;
+  option.innerHTML = source.label;
+  return option;
 }
 
-const buildOptionsUI = (storedSource) => {
-  const sourceURL = storedSource.faviconSource ?? FAVICON_SOURCES[0].url;
-  const container = document.querySelector("#radio-group-container");
+const initSelect = (sourceURL) => {
+  const select = document.querySelector("#icon-src-select");
+  select.addEventListener("change", handleSelectChange)
   FAVICON_SOURCES.forEach(source => {
-    container.appendChild(getRadioButton(source, source.url === sourceURL));
+    select.appendChild(getOption(source, source.url == sourceURL));
   });
+}
+
+const handleToggleChange = (event) => {
+  const checked = event.target.checked;
+  browser.storage.local.set({ "anonViewFavicon": checked });
+}
+
+const initToggle = (isChecked) => {
+  const toggle = document.querySelector("#hide-anon-toggle");
+  if (isChecked) {
+    toggle.setAttribute("checked", "checked");
+  }
+  toggle.addEventListener("change", handleToggleChange);
+}
+
+const updateUI = (storedSource) => {
+  const sourceURL = storedSource.faviconSource;
+  const hideAnonView = storedSource.anonViewFavicon;
+  initSelect(sourceURL);
+  initToggle(hideAnonView);
 };
 
 const onError = (e) => {
@@ -41,5 +51,8 @@ const onError = (e) => {
 }
 
 // update UI with settings in storage
-const gettingStoredSource = browser.storage.local.get("faviconSource");
-gettingStoredSource.then(buildOptionsUI, onError);
+const gettingStoredSource = browser.storage.local.get({
+  faviconSource: FAVICON_SOURCES[0].url,
+  anonViewFavicon: false
+});
+gettingStoredSource.then(updateUI, onError);
