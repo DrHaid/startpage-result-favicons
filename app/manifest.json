@@ -9,13 +9,7 @@
     "16": "images/icon-16.png",
     "128": "images/icon-128.png"
   },
-  "options_ui": {
-    "page": "pages/options.html",
-    "browser_style": true,
-    "chrome_style": true
-  },
   "browser_action": {
-    "browser_style": true,
     "default_icon": "images/icon-128.png",
     "default_title": "__MSG_appName__",
     "default_popup": "pages/popup.html"
