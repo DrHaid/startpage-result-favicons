@@ -1,4 +1,4 @@
-name: Publish
+name: Publish Firefox
 
 on:
   push:
@@ -31,10 +31,10 @@ jobs:
         zip -r source_code.zip app/* packages/* README.md package*.json
 
     - name: publish extension
-      uses: wdzeng/firefox-addon@v1.1.0-alpha.1
+      uses: wdzeng/firefox-addon@v1.2.0
       with:
         addon-guid: ${{ vars.ADDON_GUID }}
         xpi-path: ${{steps.get-xpi-file.outputs.xpi}}
         jwt-issuer: ${{ secrets.JWT_ISSUER }}
         jwt-secret: ${{ secrets.JWT_SECRET }}
-        source-code-path: source_code.zip
+        source-file-path: source_code.zip
