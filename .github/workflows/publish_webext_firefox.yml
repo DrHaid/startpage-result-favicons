@@ -31,7 +31,7 @@ jobs:
         zip -r source_code.zip app/* packages/* README.md package*.json
 
     - name: publish extension
-      uses: wdzeng/firefox-addon@v1.2.0
+      uses: wdzeng/firefox-addon@v1.1.2
       with:
         addon-guid: ${{ vars.ADDON_GUID }}
         xpi-path: ${{steps.get-xpi-file.outputs.xpi}}
