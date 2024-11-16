@@ -14,7 +14,7 @@ const getOption = (source, isSelected) => {
   if (isSelected) {
     option.setAttribute("selected", "selected")
   }
-  option.innerHTML = source.label;
+  option.textContent = source.label;
   return option;
 }
 
