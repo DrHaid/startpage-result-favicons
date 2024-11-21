@@ -2,7 +2,9 @@
 [![Build](https://github.com/DrHaid/startpage-result-favicons/actions/workflows/build_webext.yml/badge.svg)](https://github.com/DrHaid/startpage-result-favicons/actions/workflows/build_webext.yml)
 
 WebExtension for displaying the favicons of search results in Startpage.
-### Get it [here](https://addons.mozilla.org/en-US/firefox/addon/startpage-result-favicons/) for Firefox 🔥🦊
+## Get it here
+### [Firefox](https://addons.mozilla.org/en-US/firefox/addon/startpage-result-favicons/) 🔥🦊
+### [Chrome](https://chromewebstore.google.com/detail/startpage-result-favicons/nhkmmadlllffbakghicnimbohdcnohcl) 🔴🟢🟡
 
 ---
 ## Development
