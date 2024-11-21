@@ -4,9 +4,11 @@
   "description": "WebExtension for displaying the favicons of search results in Startpage",
   "scripts": {
     "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build"
+    "build": "webextension-toolbox build",
+    "dev:ff_android": "npm run dev firefox & cd ./dist/firefox/ && web-ext run -t firefox-android --firefox-apk org.mozilla.fenix"
   },
   "devDependencies": {
-    "webextension-toolbox": "latest"
+    "webextension-toolbox": "latest",
+    "web-ext": "latest"
   }
 }
