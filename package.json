@@ -1,12 +1,14 @@
 {
   "name": "startpage-result-favicons",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "WebExtension for displaying the favicons of search results in Startpage",
   "scripts": {
     "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build"
+    "build": "webextension-toolbox build",
+    "run:ff_android": "cd ./dist/firefox/ && web-ext run -t firefox-android --firefox-apk org.mozilla.fenix"
   },
   "devDependencies": {
-    "webextension-toolbox": "latest"
+    "webextension-toolbox": "latest",
+    "web-ext": "latest"
   }
 }

@@ -2,7 +2,7 @@ body {
     background-color: rgb(23, 27, 37);
     color: rgb(235, 236, 247);
     margin: 0px !important;
-    width: 455px;
+    min-width: 375px;
     font-family: Inter, Helvetica Neue, Arial, sans-serif;
 }
 

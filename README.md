@@ -13,19 +13,25 @@ WebExtension for displaying the favicons of search results in Startpage.
 
 	$ npm install
 
-### Dev Build
-
-    npm run dev chrome
-    npm run dev firefox
-    npm run dev opera
-    npm run dev edge
-
 ### Build
 
-    npm run build chrome
     npm run build firefox
-    npm run build opera
-    npm run build edge
+    npm run build chrome
+
+### Dev Build
+
+    npm run dev firefox
+    npm run dev chrome
+
+### Dev on Android Firefox
+⚠️  Install [adb](https://developer.android.com/tools/adb) on your PC, Firefox Nightly on your Android phone and enable USB-Debugging.
+
+    npm run dev firefox
+    
+    # in another command line
+    npm run run:ff_android -- --android-device <DEVICE_ID>
+
+Get the device ID by running `adb devices`
 
 ### Environment
 

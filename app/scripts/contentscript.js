@@ -31,7 +31,11 @@ const insertFavicons = (storedSettings) => {
   const hideAnonView = storedSettings.anonViewFavicon;
   const resultContainers = document.querySelectorAll("div.result");
   resultContainers.forEach((container) => {
-    const linkElement = container.querySelector("div.upper > a")
+    let linkElement = container.querySelector("div.upper > a")
+    if (!linkElement) {
+      // check for alternative class name, like in case of mobile site
+      linkElement = container.querySelector("div.result-url-container > a")
+    }
     if (!linkElement) return;
 
     const url = linkElement.getAttribute("href");
