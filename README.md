@@ -1,3 +1,6 @@
+#### ℹ️ It looks like Startpage started rolling out their own solution for adding favicons to the search results, which, at least on PC, makes this extension obsolete.
+
+
 # Startpage - Result Favicons
 [![Build](https://github.com/DrHaid/startpage-result-favicons/actions/workflows/build_webext.yml/badge.svg)](https://github.com/DrHaid/startpage-result-favicons/actions/workflows/build_webext.yml)
 
